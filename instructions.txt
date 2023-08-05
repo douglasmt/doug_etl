@@ -1,0 +1,19 @@
+docker exec -it 25-doug_etl-airflow-webserver-1 /bin/bash
+
+# to run the task
+# enter the worker
+PS H:\22-Estudos\25-DOUG_ETL> docker exec -it 25-doug_etl-airflow-worker-1 /bin/bash
+
+airflow tasks test dag_03_01_get_postgres_data_to_csv select_dvdrental_table
+
+# THE OUT PUT FILE is here
+airflow@f097a7c5c09e:/opt/airflow$ ls
+airflow-worker.pid  airflow.cfg  dags  get_postgres_create_csv_output.csv  logs  plugins  webserver_config.py
+
+# so I created a folder files and run the worker again
+airflow@f097a7c5c09e:/opt/airflow/files$ cat get_postgres_create_csv_output.csv 
+customer_id, first_name, last_name, email
+524,Jared,Ely,jared.ely@sakilacustomer.org
+1,Mary,Smith,mary.smith@sakilacustomer.org
+....
+
