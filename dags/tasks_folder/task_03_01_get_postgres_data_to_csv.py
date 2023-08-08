@@ -1,17 +1,15 @@
-from airflow import DAG
-from airflow.providers.postgres.operators.postgres import PostgresOperator
-from airflow.operators.python import PythonOperator
-import psycopg2, postgres_parms
-from airflow.providers.http.sensors.http import HttpSensor
-from airflow.providers.http.operators.http import SimpleHttpOperator
-from airflow.providers.postgres.hooks.postgres import PostgresHook
-
 import json
-from pandas import json_normalize
+import psycopg2
+from . import postgres_parms
 
-
-from datetime import datetime
-
+# Building the parameters
+i = 0 
+count = 0
+if count == 0:
+    count +=1
+if count == None:
+    count = 0
+    
 def run_query_with_psycopg():
         try:
             print(postgres_parms.pg_conn)
@@ -49,17 +47,6 @@ def run_query_with_psycopg():
             if connection:
                 cursor.close()
                 connection.close()
-                print("PostgreSQL connection is closed")
-
-with DAG('dag_03_01_get_postgres_data_to_csv', start_date=datetime(2023,1,1),
-         schedule_interval='@daily', 
-         catchup=False # means that the DAG was not triggered since the start date
-         ) as dag:
-    
-    select_dvdrental_table = PythonOperator(
-        task_id='select_dvdrental_table',
-        python_callable=run_query_with_psycopg
-    )
+                print("PostgreSQL connection is closed")            
 
 
-select_dvdrental_table

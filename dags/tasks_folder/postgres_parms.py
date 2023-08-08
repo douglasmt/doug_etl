@@ -8,7 +8,3 @@ select_tb = "SELECT customer_id, \
     email, address_id, activebool, \
 	create_date, last_update, active \
 	FROM public.customer;"
-    # \
-	#where customer_id = 1;"
-
-#insert_tb = "INSERT INTO public.clients_json VALUES (%s, %s, %s, %s)"
