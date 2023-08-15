@@ -1,9 +1,10 @@
 import csv, json
 import redis
 
+from tasks_folder import redis_conn
 
 # Connect to Redis
-r = redis.Redis(host='25-doug_etl-redis-1', port=6379, db=1)
+r = redis.Redis(host=redis_conn.host, port=6379, db=1)
 
 def run_csv_create_key_redis():
     i=0

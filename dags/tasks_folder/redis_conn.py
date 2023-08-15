@@ -1,1 +1,1 @@
-host='localhost'
+host='doug_etl-redis-1'

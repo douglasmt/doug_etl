@@ -1,0 +1,26 @@
+Conn Id 	    Conn Type 	Description 	Host 	Port 	
+elastic_default	http		elastic	9200	False	False
+
+# In order to connect Elastic Search with Airflow
+
+
+doug_etl\plugins\hooks\elastic\elastic_hook.py
+
+docker exec -it doug_etl-airflow-scheduler-1 /bin/bash
+airflow@9744c6a7945d:/opt/airflow$ curl -X GET 'http://elastic:9200'
+
+airflow plugins
+/home/airflow/.local/lib/python3.7/site-packages/airflow/configuration.py:367: FutureWarning: The auth_backends setting in [api] has had airflow.api.auth.backend.session added in the running config, which is needed by the UI. Please update your config before Apache Airflow 3.0.
+  FutureWarning,
+No plugins loaded
+airflow@9744c6a7945d:/opt/airflow$ 
+
+
+docker-compose -f docker-compose-es.yaml stop && docker-compose -f docker-compose-es.yaml up -d
+
+airflow plugins
+
+  FutureWarning,
+name    | source                                        | hooks
+========+===============================================+=========================
+elastic | $PLUGINS_FOLDER/hooks/elastic/elastic_hook.py | elastic_hook.ElasticHook

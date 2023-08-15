@@ -1,0 +1,2 @@
+docker cp doug_etl-airflow-scheduler-1:/opt/airflow/airflow.cfg .
+Successfully copied 52.2kB to H:\22-Estudos\doug_etl\.

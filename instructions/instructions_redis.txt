@@ -1,0 +1,48 @@
+# REDIS Trying to connect to airflow redis : 
+(https://www.digitalocean.com/community/cheatsheets/how-to-manage-redis-databases-and-keys)
+(https://stackoverflow.com/questions/12802726/how-to-list-all-redis-databases)
+docker exec -it 25-doug_etl-redis-1 /bin/bash
+in DB0
+SET mykey "Hello world"
+OK
+127.0.0.1:6379> gET mykey
+"Hello world"
+
+# to get all the keys
+KEYS *
+1) "_kombu.binding.default"
+2) "_kombu.binding.celery.pidbox"
+3) "mykey"
+4) "_kombu.binding.celeryev"
+127.0.0.1:6379> CONFIG GET databases
+1) "databases"
+2) "16"
+127.0.0.1:6379> INFO keyspace
+# Keyspace
+db0:keys=4,expires=0,avg_ttl=0
+db1:keys=599,expires=0,avg_ttl=0
+
+# in order to select the db1 and to find the keys on db1 
+select 1
+OK
+127.0.0.1:6379[1]> INFO keyspace
+# Keyspace
+db0:keys=4,expires=0,avg_ttl=0
+db1:keys=599,expires=0,avg_ttl=0
+127.0.0.1:6379[1]> KEYS *
+  1) "PurchaseOrder215"
+  2) "PurchaseOrder62"
+  3) "PurchaseOrder542"
+...
+597) "PurchaseOrder598"
+598) "PurchaseOrder166"
+599) "PurchaseOrder85"
+127.0.0.1:6379[1]>
+
+# Delete all the keys
+127.0.0.1:6379[1]> flushdb 
+
+# Get keu values:
+127.0.0.1:6379[1]> get PurchaseOrder85
+"{\"customer_id\": \"85\", \" first_name\": \"Anne\", \" last_name\": \"Powell\", \" email\": \"anne.powell@sakilacustomer.org\"}"
+

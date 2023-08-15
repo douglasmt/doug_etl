@@ -1,0 +1,30 @@
+docker exec -it doug_etl-airflow-worker-1 /bin/bash 
+
+# THE OUT PUT FILE is here
+airflow@f097a7c5c09e:/opt/airflow$ ls
+airflow-worker.pid  airflow.cfg  dags  get_postgres_create_csv_output.csv  logs  plugins  webserver_config.py
+
+# so I created a folder files and run the worker again
+airflow@f097a7c5c09e:/opt/airflow/files$ cat get_postgres_create_csv_output.csv 
+customer_id, first_name, last_name, email
+524,Jared,Ely,jared.ely@sakilacustomer.org
+1,Mary,Smith,mary.smith@sakilacustomer.org
+....
+
+docker exec -it doug_etl-airflow-worker-1 /bin/bash 
+# List and remove files
+airflow@9db0c8afe353:/opt/airflow/files$ ls
+get_csv_create_json_output.json  get_postgres_create_csv_output.csv
+airflow@9db0c8afe353:/opt/airflow/files$ rm get_*
+airflow@9db0c8afe353:/opt/airflow/files$ ls
+
+
+ File from course user_processing:
+ PS H:\22-Estudos\25-DOUG_ETL> docker exec -it doug_etl-airflow-worker-1 /bin/bash 
+airflow@9db0c8afe353:/opt/airflow$ cd /tmp
+
+airflow@9db0c8afe353:/tmp$ ls
+processed_user.csv  pymp-hd2hbdpx  tmp_afh1uos
+
+airflow@9db0c8afe353:/tmp$ cat processed_user.csv
+Martha,Holland,Ireland,silvermeercat645,sean,martha.holland@example.com

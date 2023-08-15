@@ -1,0 +1,5 @@
+Conn Id 	Conn Type 	Description 	Host 	Port 	Is Encrypted 	Is Extra Encrypted 
+
+postgres	postgres	postgres	    5432	False	False
+	
+user_api	http		randomuser.me/	False	False

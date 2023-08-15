@@ -7,4 +7,6 @@ select_tb = "SELECT customer_id, \
     store_id, first_name, last_name, \
     email, address_id, activebool, \
 	create_date, last_update, active \
-	FROM public.customer;"
+	FROM public.customer \
+    where last_update  > now() - interval '1 week' \
+    order by customer_id;"

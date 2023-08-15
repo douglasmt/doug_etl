@@ -1,0 +1,13 @@
+# DATABASE - Postgres in airflow:
+PS H:\22-Estudos\25-DOUG_ETL> docker exec -it 25-doug_etl-postgres-1 /bin/bash
+
+root@3ace2e97acaf:/# psql -U airflow
+
+airflow=# select * from users;
+ firstname |  lastname  |    country     |   username   | password |            email
+-----------+------------+----------------+--------------+----------+------------------------------
+ Nicole    | Kuhn       | United Kingdom | smallfish820 | sweety   | nicole.kuhn@example.com
+ Lesya     | Pogrebnyak | Ukraine        | biggoose599  | bangbang | lesya.pogrebnyak@example.com
+ Aaron     | Thomas     | New Zealand    | silvercat142 | susana   | aaron.thomas@example.com
+
+

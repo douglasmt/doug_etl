@@ -1,0 +1,29 @@
+activate flower
+docker-compose --profile flower up -d
+
+elastic search(kibana?)
+
+docker-compose -f docker-compose-es.yaml up -d
+docker-compose -f docker-compose-es.yaml ps
+
+# Enter in Windows shell only, not bash
+docker exec -it doug_etl-airflow-scheduler-1 /bin/bash
+
+airflow@9744c6a7945d:/opt/airflow$ curl -X GET 'http://elastic:9200'
+{
+  "name" : "c1fcdcc10f7e",
+  "cluster_name" : "docker-cluster",
+  "cluster_uuid" : "9SjhjKSTRL2srpcWnra5Og",
+  "version" : {
+    "number" : "8.3.3",
+    "build_flavor" : "default",
+    "build_type" : "docker",
+    "build_hash" : "801fed82df74dbe537f89b71b098ccaff88d2c56",
+    "build_date" : "2022-07-23T19:30:09.227964828Z",
+    "build_snapshot" : false,
+    "lucene_version" : "9.2.0",
+    "minimum_wire_compatibility_version" : "7.17.0",
+    "minimum_index_compatibility_version" : "7.0.0"
+  },
+  "tagline" : "You Know, for Search"
+}

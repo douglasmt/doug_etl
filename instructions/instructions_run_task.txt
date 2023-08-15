@@ -1,0 +1,8 @@
+docker exec -it 25-doug_etl-airflow-webserver-1 /bin/bash
+
+# to run the task
+# enter the worker
+PS H:\22-Estudos\25-DOUG_ETL> docker exec -it 25-doug_etl-airflow-worker-1 /bin/bash
+
+airflow tasks test dag_03_01_get_postgres_data_to_csv select_dvdrental_table
+
