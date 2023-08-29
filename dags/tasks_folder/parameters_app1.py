@@ -1,2 +1,2 @@
-key_redis="user_data"
-parameters_keys=1
+key_redis = "user_data"
+parameters_keys = 1

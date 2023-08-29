@@ -1,0 +1,20 @@
+airflow -h
+    2  clear
+    3  airflow -h
+    4  airflow dags list
+    5  airflow dags trigger example_bash_operator
+    6  airflow dags trigger example_bash_operator -e 1984-01-01
+    7  airflow dags trigger example_bash_operator -e 2022-01-01
+    8  airflow dags trigger example_bash_operator -e 2023-07-01
+    9  airflow dags list-runs -d example_bash_operator
+   10  airflow dags trigger example_bash_operator -e 2023-08-15
+   11  airflow dags list-runs -d example_bash_operator
+   12  airflow dags trigger example_bash_operator -e 2023-08-15
+   13  airflow dags backfill -s 1982-01-01 -e 2023-08-15 --reset-dagruns
+   14  airflow dags backfill -s 1982-01-01 -e 2023-08-15 --reset-dagruns dag_id example_bash_operator
+   15  airflow dags backfill -s 1982-01-01 -e 2023-08-15 --reset-dagruns -dag_id example_bash_operator
+   16  airflow dags backfill -s 1982-01-01 -e 2023-08-15 --reset-dagruns example_bash_operator
+   17  airflow dags backfill -s 2023-08-10 -e 2023-08-15 --reset-dagruns example_bash_operator
+   18  pip install apache-airflow['cncf.kubernetes']
+   19  hist
+   20  history
