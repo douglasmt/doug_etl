@@ -1,1 +1,10 @@
 logs/
+dags/__pycache__/
+dags/tasks_folder/__pycache__/
+/dags/tasks_folder/.pytest_cache/
+/dags/.pytest_cache/
+dags/groups/
+.idea/
+dags/xcom_dag.py
+dags/group_dags.py
+dags/tasks_folder/tests_folder/__pycache__/

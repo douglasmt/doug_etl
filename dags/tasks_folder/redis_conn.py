@@ -1,1 +1,1 @@
-host = 'doug_etl-redis-1'
+host = 'host.docker.internal'
